@@ -1,0 +1,40 @@
+[all:vars]
+ansible_user=admin
+#ansible_ssh_pass=automate@dmin
+dest_files=/home/ubuntu/backups
+warn=no
+date="{{ '%Y%m%d-%H%M' | strftime }}"
+
+#[webservers]
+#foo.example.com
+#bar.example.com
+
+[corpwpriv:children]
+dc1wpriv
+dc2wpriv
+
+[dc1wpriv]
+10.1.1.5 ansible_host=10.1.1.5    private_ip=10.1.1.5  
+10.1.1.6 ansible_host=10.1.1.6    private_ip=10.1.1.6
+
+[dc2wpriv]
+10.1.1.9  ansible_host=10.1.1.9    private_ip=10.1.1.9
+10.1.1.10 ansible_host=10.1.1.10   private_ip=10.1.1.10
+10.1.1.11 ansible_host=10.1.1.11   private_ip=10.1.1.11
+
+#[localhost]
+#localhost
+
+#Review K64450989 on how to create appropriate files for ansible vault
+
+#To encrypt the file
+#For this example
+#ansible-vault encrypt group_vars/my_dg/vault.yml
+
+#To edit vault file. Make changes to the password
+#ansible-vault edit group_vars/my_dg1/vault.yml
+#ansible-vault edit group_vars/my_dg2/vault.yml
+
+#To run the playbook
+#ansible-playbook --vault-id @prompt HCA-LicenseAndFacts-w.yml
+#ansible-playbook  licenseandfacts.yml --ask-vault-pass
