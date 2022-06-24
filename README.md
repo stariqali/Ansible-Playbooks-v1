@@ -53,18 +53,18 @@ Run the following command to decrypt the file and modify the device group settin
 - When prompted enter the ansible vault password
 
 
-#To re-encrypt or change the vault pass
+To re-encrypt or change the vault pass
 ```bash
     ansible-vault encrypt group_vars/my_dg/vault.yml
 ```
 - When prompted enter the existing ansible vault password or to change the password enter a new one.
 
-#To re-encrypt or change the vault pass
+To re-encrypt or change the vault pass
 ```bash
     ansible-vault encrypt group_vars/my_dg/vault.yml
 ```
 
-#To edit vault file
+To edit vault file
 ```bash
     ansible-vault edit group_vars/my_dg1/vault.yml
 ```
