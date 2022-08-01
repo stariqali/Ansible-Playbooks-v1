@@ -36,5 +36,4 @@ dc2wpriv
 #ansible-vault edit group_vars/my_dg2/vault.yml
 
 #To run the playbook
-#ansible-playbook --vault-id @prompt HCA-LicenseAndFacts-w.yml
 #ansible-playbook  licenseandfacts.yml --ask-vault-pass
