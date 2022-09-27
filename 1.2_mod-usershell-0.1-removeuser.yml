@@ -1,7 +1,7 @@
 ---
 - name: Create a new user and change the admin shell to advanced
   #/////////////////////////////////////////////////////////////////
-  #Created by F5 Consultant S. Tariq Ali.
+  #Created by S. Tariq Ali.
   #Created on 20210420
   #/////////////////////////////////////////////////////////////////
   hosts: corpwpriv
