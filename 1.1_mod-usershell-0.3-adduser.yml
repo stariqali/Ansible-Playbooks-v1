@@ -1,0 +1,53 @@
+---
+
+- name: Create a new user and change the admin shell to advanced
+  #/////////////////////////////////////////////////////////////////
+  #Created by S. Tariq Ali.
+  #There are no warrienties to this playbook implied or otherwise
+  #Thoroughly test all code within a test lab before using it in the production environment
+  #/////////////////////////////////////////////////////////////////
+  hosts: corpwpriv
+
+  any_errors_fatal: true
+  connection: local
+  gather_facts: false
+  collections:
+  - f5networks.f5_modules
+  # prevent proxy usage
+  environment:
+    https_proxy: ''
+    http_proxy: ''
+  
+  vars:
+  # Define common BIGIP provider for all tasks
+    bigip_provider:
+      user: "{{ansible_user}}"
+      password: "{{ansible_ssh_pass}}"
+      server: "{{ ansible_host }}"
+      validate_certs: false
+      no_f5_teem: yes
+  tasks:
+    - name: Add the user 'johnd' as an admin
+      no_log: true
+      bigip_user:
+        username_credential: johnd
+        password_credential: "automate@dmin!@#$"
+        full_name: John Doe
+        partition_access:
+          - all:admin
+        shell: bash
+        update_password: on_create
+        state: present
+        provider: "{{bigip_provider}}"
+      register: device_facts
+
+    - name: Change the user "admin" role and shell
+      no_log: true
+      bigip_user:
+        username_credential: admin
+        partition_access:
+          - all:admin
+        shell: bash
+        state: present
+        provider: "{{bigip_provider}}"
+      register: device_facts
