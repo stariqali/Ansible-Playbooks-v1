@@ -10,6 +10,8 @@
   gather_facts: false
   remote_user: admin
   #remote_user: root
+  collections:
+  - f5networks.f5_modules
 
   tasks:
     - name: Add the user 'johnd' as an admin
