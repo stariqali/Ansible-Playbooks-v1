@@ -34,7 +34,7 @@
 
     - name: Change the user "admin" role and shell
       no_log: true
-      bigip_user:
+      f5networks.f5_modules.bigip_user:
         username_credential: admin
         partition_access:
           - all:admin
