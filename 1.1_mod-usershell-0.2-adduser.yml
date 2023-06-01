@@ -15,7 +15,7 @@
   
   tasks:
   - name: Add the user 'johnd' as an admin
-    bigip_user:
+    f5networks.f5_modules.bigip_user:
       username_credential: johnd
       password_credential: password
       full_name: John Doe
