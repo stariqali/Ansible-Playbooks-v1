@@ -5,7 +5,7 @@
   #There are no warrienties to this playbook implied or otherwise
   #Thoroughly test all code within a test lab before using it in the production environment
   #/////////////////////////////////////////////////////////////////
-  hosts: corpwpriv
+  hosts: legacy1
 
   gather_facts: false
   remote_user: admin
