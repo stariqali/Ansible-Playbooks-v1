@@ -16,7 +16,7 @@
   tasks:
     - name: Add the user 'johnd' as an admin
       no_log: true
-      f5networks.f5_modules.bigip_user:
+      bigip_user:
         username_credential: johnd
         password_credential: automate@dmin!@#$
         full_name: John Doe
@@ -36,7 +36,7 @@
 
     - name: Change the user "admin" role and shell
       no_log: true
-      f5networks.f5_modules.bigip_user:
+      bigip_user:
         username_credential: admin
         partition_access:
           - all:admin
