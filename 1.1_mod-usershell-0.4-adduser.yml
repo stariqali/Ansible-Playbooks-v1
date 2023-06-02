@@ -21,6 +21,7 @@
     is_active: "{{ bigip_gather_var.devices | selectattr('self', 'equalto', 'yes') | map(attribute='failover_state') | first == 'active' }}"
     failover_device_group: "{{ bigip_gather_var.device_groups | selectattr('type', 'equalto', 'sync-failover')  | map(attribute='name') | first | default ('None') }}"
 
+
   tasks:
   - name: Get bigip config Information
     bigip_device_info:
