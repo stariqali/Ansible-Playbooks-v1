@@ -1,8 +1,0 @@
----
-collections:
-# With just the collection name
-- name: f5networks.f5_modules
-#  version: 1.24.0
-#- name: f5networks.f5_bigip
-#- community.general
-#- ansible.netcommon
